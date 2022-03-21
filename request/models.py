@@ -64,7 +64,7 @@ class Request(models.Model):
         self.is_ajax = request_is_ajax(request)
 
         # User information.
-        self.ip = request.META.get('REMOTE_ADDR', '0.0.0.0')
+        self.ip = request.META.get('REMOTE_ADDR') or '0.0.0.0'
         self.referer = request.META.get('HTTP_REFERER', '')[:255]
         self.user_agent = request.META.get('HTTP_USER_AGENT', '')[:255]
         self.language = request.META.get('HTTP_ACCEPT_LANGUAGE', '')[:255]

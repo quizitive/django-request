@@ -21,8 +21,8 @@ class Request(models.Model):
     # Request information.
     method = models.CharField(_('method'), default='GET', max_length=7)
     path = models.CharField(_('path'), max_length=255)
-    query_params = models.JSONField(_('query_params'), default={})
-    post_body = models.JSONField(_('post_body'), default={})
+    query_params = models.JSONField(_('query_params'), default=dict)
+    post_body = models.JSONField(_('post_body'), default=dict)
     time = models.DateTimeField(_('time'), default=timezone.now, db_index=True)
 
     is_secure = models.BooleanField(_('is secure'), default=False)
